@@ -38,9 +38,7 @@ const EmbedDashboard = () => {
     /*
       Step 2 Create your dashboard (or other piece of embedded content) through a simple set of chained methods
     */
-    LookerEmbedSDK.createDashboardWithId(
-      "data_block_acs_bigquery::acs_census_overview"
-    )
+    LookerEmbedSDK.createDashboardWithId(4)
       // adds the iframe to the DOM as a child of a specific element
       .appendTo(el)
       // the .on() method allows us to listen for and respond to events inside the iframe. See here for a list of events: https://docs.looker.com/reference/embedding/embed-javascript-events
