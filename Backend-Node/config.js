@@ -80,9 +80,9 @@ config.authenticatedUser =
       "see_user_dashboards",
       "see_lookml_dashboards"
     ],
-    "models": ["data_block_acs_bigquery"],
+    "models": ["basic_ecomm"],
     //user2 will be localized into a different language
-    "user_attributes": { "locale": "es_US" }
+    "user_attributes": { "locale": "es_US", "country": "United States", "fname": "Aaron", "lname": "Gentry" }
   }
 }
 
