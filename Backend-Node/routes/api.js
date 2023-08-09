@@ -29,7 +29,7 @@ var createSignedUrl = require("../auth/auth_utils");
  */
 router.get("/embed-user/token", async (req, res) => {
   const userCred = await sdk.ok(sdk.user_for_credential("embed", req.query.id));
-  const embed_user_token = await sdk.login_user(userCred.id.toString());
+  const embed_user_token = await sdk.login_user(userCred.id);
   const u = {
     user_token: embed_user_token.value,
     token_last_refreshed: Date.now(),
