@@ -90,6 +90,11 @@ router.get("/me", async (req, res, next) => {
   res.send(me);
 });
 
+router.post("/create-query", async (req, res, next) => {
+  const query = await sdk.ok(sdk.create_query(req.body)).catch((e) => console.log(e));
+  res.send(query);
+});
+
 /**
  * Get a list of all looks the authenticated user can access
  */

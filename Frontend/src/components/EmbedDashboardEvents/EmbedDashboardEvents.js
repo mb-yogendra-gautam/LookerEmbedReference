@@ -43,7 +43,7 @@ const EmbedDashboardEvents = () => {
     /*
         Step 2 Create your dashboard (or other piece of embedded content) through a simple set of chained methods
       */
-    LookerEmbedSDK.createDashboardWithId(4
+    LookerEmbedSDK.createDashboardWithId(1
     )
       // adds the iframe to the DOM as a child of a specific element
       .appendTo(el)
@@ -171,6 +171,9 @@ const EmbedDashboardEvents = () => {
             <Button onClick={() => dashboardRef.stop()}>Stop</Button>
             <Button onClick={() => dashboardRef.openScheduleDialog()}>
               Schedule
+            </Button>
+            <Button onClick={() => dashboardRef.download()}>
+              Download
             </Button>
           </Space>
           <LoadingSpinner loading={loading} />

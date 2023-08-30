@@ -45,7 +45,7 @@ const EmbedDashboardWFilters = () => {
     const initialize = async () => {
       const filters = await sdk.ok(
         sdk.dashboard(
-          "4",
+          "1",
           "dashboard_filters"
         )
       );
@@ -85,7 +85,7 @@ const EmbedDashboardWFilters = () => {
     /*
       Step 2 Create your dashboard (or other piece of embedded content) through a simple set of chained methods
     */
-    LookerEmbedSDK.createDashboardWithId(4)
+    LookerEmbedSDK.createDashboardWithId(1)
       // Adds the iframe to the DOM as a child of a specific element
       .appendTo(el)
       // Hides the filters in the embedded dashboard. Custom themes must be enabled on the Looker instance.

@@ -62,8 +62,8 @@ config.authenticatedUser =
       "schedule_external_look_emails"
     ],
     // Models are mandatory; an emebd user can only see content and data using these models
-    "models": ["basic_ecomm"],
-    "user_attributes": { "locale": "en_US" }
+    "models": ["reporting_edw"],
+    "user_attributes": { }
   },
   user2: {
     "external_user_id": "user2",
