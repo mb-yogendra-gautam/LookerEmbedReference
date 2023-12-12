@@ -74,7 +74,8 @@ class PblSessionEmbed extends PblSession {
       // In real applications, you would pass the actual, 
       // logged in user to the backend instead.
       // The backend would then handle assigning appropriate permissions to the user.
-      "/api/embed-user/token?id=user1"
+      //"/api/embed-user/token?id=user1"
+      "/api/admin-user/token?id=3"
     );
   }
 }

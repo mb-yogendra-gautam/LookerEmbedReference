@@ -32,35 +32,54 @@ import { Space } from "@looker/components";
 import { sampleQuery } from "./sampleQuery";
 import styled from "styled-components";
 import { PageTitle } from "../common/PageTitle";
+import { DataProvider } from "@looker/components-data";
 
 const EmbedComponent = (props) => {
   // Add a variables to state
   const [queryId, updateQueryId] = useState();
-
+  const [value, setValue] = useState("51873");
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+  let config = {};
+  if (value === "51873") {
+    config = { type: "line" };
+  } else if (value === "52460") {
+    config = { type: "bar" };
+  }
   // This creates a sample query to display.
   // This works well on any looker instance with the necessary lookML model (from the census block).
   // If you have a static query ID, you can use that instead of doing this extra step.
   useEffect(() => {
-    sdk.ok(sdk.create_query(JSON.stringify(sampleQuery))).then((res) => {
-      console.log(res);
-      updateQueryId(res.id);
-    });
+    // sdk.ok(sdk.create_query(JSON.stringify(sampleQuery))).then((res) => {
+    //   console.log(res);
+    //   updateQueryId(res.id);
+    // });
     // The second argument to the effect is an array of elements to 'watch'.
     // An empty array like this makes the effect execute only once.
   }, []);
 
   return (
-    <Space width="calc(100% - 15px)">
-      <div className={"embed-dashboard-main"}>
-        <PageTitle text={"Visualization Component"} />
-        {queryId > 0 ? null : (
-          <PageTitle>Generating a new query, please wait.</PageTitle>
-        )}
-        <Query sdk={sdk} query={queryId}>
-          <Visualization />
-        </Query>
+    <div className={"embed-dashboard-main"}>
+      <PageTitle text={"Visualization Component"} />
+      {queryId > 0 ? null : (
+        <PageTitle>Generating a new query, please wait.</PageTitle>
+      )}
+
+      <div>
+        <label>
+          Select Visual
+          <select onChange={handleChange}>
+            <option value="51873">Daily Sales Trend</option>
+            <option value="52460">Sales By Vertical</option>
+          </select>
+        </label>
       </div>
-    </Space>
+
+      <Query query={value} sdk={sdk} config={config}>
+        <Visualization />
+      </Query>
+    </div>
   );
 };
 

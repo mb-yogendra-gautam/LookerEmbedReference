@@ -37,6 +37,16 @@ router.get("/embed-user/token", async (req, res) => {
   res.json({ ...u });
 });
 
+router.get("/admin-user/token", async (req, res) => {
+  //const userCred = await sdk.ok(sdk.user_for_credential("embed", req.query.id));
+  const embed_user_token = await sdk.login_user(req.query.id.toString());
+  const u = {
+    user_token: embed_user_token.value,
+    token_last_refreshed: Date.now(),
+  };
+  res.json({ ...u });
+});
+
 /**
  * Update the embed users permissions
  */

@@ -33,37 +33,20 @@ config.authenticatedUser =
     "force_logout_login": true,
     // The external_group_id is an arbitrary id, usually from an IdP
     // A folder is created for each external_group_id, for embed users to share content
-    "external_group_id": "group1",
+    "external_group_id": "18192",
     "group_ids": [],
     // For available permissions see: https://docs.looker.com/reference/embedding/sso-embed#permissions
     // If the code here is 
     "permissions": [
-      // access_data is necessary for every embed user.
-      "access_data",
-      // see_looks lets user view existing looks
-      "see_looks",
-      // see_user_dashboards lets users view existing dashboards 
       "see_user_dashboards",
-      // explore lets users use the explore experience
-      "explore",
-      // save_content lets users save content
-      // use it with 'explore' to allow the creation of new dashboards
-      "save_content",
-      // embed_broswe_spaces lets users navigate between folders to save content
-      "embed_browse_spaces",
-      // see_lookml_dashbaords lets users view existing 'LookML' dashboards
-      // LookML dashboards are created by developers and version controlled
       "see_lookml_dashboards",
-      // see_drill_overlay lets users drill into data
-      "see_drill_overlay",
-      // Allows users to open the schedule modal, and send email to non-embed Looker users
-      "schedule_look_emails",
-      // Allows embed users to schedule emails to themselves or other embed Looker users 
-      "schedule_external_look_emails"
+      "access_data",
+      "see_looks",
+      "see_drill_overlay"
     ],
     // Models are mandatory; an emebd user can only see content and data using these models
-    "models": ["data_block_acs_bigquery"],
-    "user_attributes": { "locale": "en_US" }
+    "models": ["reporting_edw"],
+    "user_attributes": { }
   },
   user2: {
     "external_user_id": "user2",
